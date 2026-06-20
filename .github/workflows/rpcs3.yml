@@ -66,6 +66,12 @@ jobs:
           key: ${{ runner.os }}-qt-${{ matrix.name }}-${{ env.QT_VER }}
           restore-keys: ${{ runner.os }}-qt-${{ matrix.name }}-${{ env.QT_VER }}
 
+      - name: Make scripts executable
+        run: |
+          chmod +x .ci/build-mac.sh
+          chmod +x .ci/deploy-mac.sh
+          chmod +x .ci/build-dependencies-universal.sh    
+
       - name: Build
         run: .ci/build-mac.sh
 
